@@ -49,13 +49,13 @@ function putPersona(req, res) {
 
 
 //
-function deletePersona(params) {
+function deletePersona(req, res) {
     let personaId = req.params.personaId;
     Persona.findById(personaId, (err, persona)=>{
-        if(err) resizeBy.status(500).send({message: `Error al encontrar la persona ${err}`});
+        if(err) res.status(500).send({message: `Error al encontrar la persona ${err}`});
 
         persona.remove(err=>{
-            if(err) resizeBy.status().send({message:`Error al vorrar la persona ${err}`});
+            if(err) res.status().send({message:`Error al vorrar la persona ${err}`});
 
             res.status(200).send({message:`La persona ha sido eliminada`});
         });
