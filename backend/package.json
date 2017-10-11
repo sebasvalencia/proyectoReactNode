@@ -4,7 +4,9 @@
   "description": "Proyecto que integra un API en node y el frontend en React",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "author": "Sebastian Valencia N",
   "license": "MIT",
