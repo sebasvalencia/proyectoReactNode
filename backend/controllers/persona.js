@@ -20,7 +20,7 @@ function getPersona(req, res){
     });
 }
 
-//POST una persona
+//POST insertar una persona
 function postPersona(req, res){
     let persona = Persona();
     let {nombre, apellido, edad} = req.body;
@@ -35,4 +35,16 @@ function postPersona(req, res){
         }
     });
 }
+
+//PUT actualizar una persona
+function putPersona(req, res) {
+    let personaId = req.params.personaId;
+    let updateData = req.body;
+
+    Persona.findByIdAndUpdate(personaId, updateData, (err, personaActualizada)=>{
+        if(err) return res.status(500).send({message: `Error al actualizar la persona ${err}`});
+        res.status(200).send({persona: personaActualizada});
+    });
+}
+
 
