@@ -62,3 +62,10 @@ function deletePersona(params) {
     });
 }
 
+module.exports={
+    getPersona,
+    getPersonas,
+    postPersona,
+    putPersona,
+    deletePersona
+}
