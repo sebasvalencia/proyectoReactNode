@@ -20,4 +20,19 @@ function getPersona(req, res){
     });
 }
 
+//POST una persona
+function postPersona(req, res){
+    let persona = Persona();
+    let {nombre, apellido, edad} = req.body;
+    persona.nombre = nombre;
+    persona.apellido = apellido;
+    persona.edad = edad;
+    persona.save((err, personaAlmacenada)=>{
+        if(err){
+            res.status(500).send({message:`Error al guardar en la BD ${err}`});
+        }else{
+            res.status(200).send({persona: personaAlmacenada});
+        }
+    });
+}
 
