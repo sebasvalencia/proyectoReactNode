@@ -7,6 +7,7 @@ function getPersonas(req, res){
     Persona.find({}, (err, personas)=>{
         if(err) return res.status(500).send({message: `Error al realizar la petición ${err}`});
         if(!personas) return res.status(404).send({message: `No existen personas`});
+        console.log("personas", personas); 
         res.status(200).send({personas: personas});
     });
 }
